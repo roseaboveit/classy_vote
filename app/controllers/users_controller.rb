@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # displays the user page of the signed_in user
   end
 
   def edit
