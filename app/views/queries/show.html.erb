@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
-
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Yeas</th>
+        <th>Nays</th>
+    </tr>
+    <tr>
+        <td><%= @query.question %></td>
+        <td><%= @query.yea %></td>
+        <td><%= @query.nay %></td>
+    </tr>
+</table>
 <%= link_to 'Edit', edit_query_path(@query) %> |
-<%= link_to 'Back', queries_path %>
+<%= link_to 'Back', queries_path %><br>
+

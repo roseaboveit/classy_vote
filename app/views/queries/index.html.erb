@@ -3,18 +3,28 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Question</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
   </thead>
 
   <tbody>
     <% @queries.each do |query| %>
       <tr>
+        <td><%= query.question %></td>
         <td><%= link_to 'Show', query %></td>
-        <td><%= link_to 'Edit', edit_query_path(query) %></td>
-        <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if query.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_query_path(query) %>
+          <% end %>
+        </td>
+        <td>
+          <% if query.user_id == current_user.id %>
+          <%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

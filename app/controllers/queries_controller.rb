@@ -10,6 +10,7 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
+    @query = Query.find(params[:id])
   end
 
   # GET /queries/new
@@ -21,10 +22,36 @@ class QueriesController < ApplicationController
   def edit
   end
 
+  def yea
+    @query = Query.find(params["query_id"])
+    @query.yea += 1
+    @query.save
+    update_query_user
+    redirect_to profile_path
+  end
+
+  def nay
+    @query = Query.find(params["query_id"])
+    @query.nay += 1
+    @query.save
+    update_query_user
+    redirect_to profile_path
+  end
+
+  def update_query_user
+    @query_user = QueryUsers.new(query_users_params)
+    @query_user.user_id = current_user.id
+    @query_user.query_id = @query.id
+    @query_user.save
+  end
+
   # POST /queries
   # POST /queries.json
   def create
     @query = Query.new(query_params)
+    @query.user_id = current_user.id
+    @query.yea = 0
+    @query.nay = 0
 
     respond_to do |format|
       if @query.save
@@ -69,6 +96,10 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params[:query]
+      params.require(:query).permit(:id, :user_id, :question, :yea, :nay)
+    end
+
+    def query_users_params
+      params.require(:query_user).permit(:id, :user_id, :query_id)
     end
 end

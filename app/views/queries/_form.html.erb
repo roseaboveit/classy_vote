@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="actions">
+    <div><%= f.label :question %><br />
+    <%= f.text_field :question, :autofocus => true %></div>
+
     <%= f.submit %>
   </div>
 <% end %>

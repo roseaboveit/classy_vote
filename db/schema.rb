@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226022609) do
+ActiveRecord::Schema.define(version: 20140105173653) do
 
   create_table "answers", force: true do |t|
     t.integer "query_id"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20131226022609) do
 
   create_table "queries", force: true do |t|
     t.text    "question"
+    t.integer "user_id"
+    t.integer "yea"
+    t.integer "nay"
+  end
+
+  create_table "query_users", id: false, force: true do |t|
+    t.integer "query_id"
     t.integer "user_id"
   end
 
