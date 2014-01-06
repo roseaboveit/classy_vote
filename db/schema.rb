@@ -27,9 +27,12 @@ ActiveRecord::Schema.define(version: 20140105173653) do
   end
 
   create_table "query_users", id: false, force: true do |t|
-    t.integer "query_id"
-    t.integer "user_id"
+    t.integer "query_id", null: false
+    t.integer "user_id",  null: false
   end
+
+  add_index "query_users", ["query_id"], name: "index_query_users_on_query_id"
+  add_index "query_users", ["user_id"], name: "index_query_users_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
