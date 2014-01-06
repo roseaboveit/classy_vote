@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p> This successfully renders </p>
-<%= current_user.username %>
-<%= params %>
-<%= current_user.id %>
 
 <%= link_to "New Question", new_query_path %>
 
@@ -12,10 +9,10 @@
 <% @queries.each do |q| %>
   
     <%= q.question %>
-  <% #unless @already_voted.include?(q.id)%>
+  <% unless q.answered_users.include?(current_user)%>
     <%= button_to q.yea.to_s + " Yea", query_yea_path(q.id), :method => "patch", :action => "yea" %>
     <%= button_to q.nay.to_s + " Nay", query_nay_path(q.id), :method => "patch", :action => "nay" %><br>
-  <% #end %>
+  <% end %>
   <% end %>
 
 
@@ -36,4 +33,4 @@
 <% end %>
 <% end %>
 
-<!-- This is a major problem that there is no distinction between my questions and other people's questions -->
+

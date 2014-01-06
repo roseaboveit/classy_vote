@@ -39,10 +39,10 @@ class QueriesController < ApplicationController
   end
 
   def update_query_user
-    @query_user = QueryUsers.new(query_users_params)
-    @query_user.user_id = current_user.id
-    @query_user.query_id = @query.id
-    @query_user.save
+    @query = Query.find(params["query_id"])
+    @user = User.find(current_user.id)
+    @query.answered_users << @user
+    flash[:notice] = 'Your Voice has been Heard.'
   end
 
   # POST /queries
@@ -99,7 +99,7 @@ class QueriesController < ApplicationController
       params.require(:query).permit(:id, :user_id, :question, :yea, :nay)
     end
 
-    def query_users_params
+    def query_user_params
       params.require(:query_user).permit(:id, :user_id, :query_id)
     end
 end
