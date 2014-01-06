@@ -1,35 +1,21 @@
-<h1>Listing queries</h1>
+<div class="jumbotron">
+  <h1>Question Index</h1>
+  <div class="text-center">
+    <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
+    <%= link_to "Profile Page", "/profile"%> |
+    <%= link_to "Index", "/queries" %>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
-    </tr>
-  </thead>
+<div class="well">
+  <h3>All Questions</h3>
+    <div class="well">
+      <% @queries.each do |q| %>
+      <div>  
+        <a class="question" href="/queries/<%= q.id %>"><%= q.question %></a> 
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @queries.each do |query| %>
-      <tr>
-        <td><%= query.question %></td>
-        <td><%= link_to 'Show', query %></td>
-        <td>
-          <% if query.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_query_path(query) %>
-          <% end %>
-        </td>
-        <td>
-          <% if query.user_id == current_user.id %>
-          <%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Query', new_query_path %>

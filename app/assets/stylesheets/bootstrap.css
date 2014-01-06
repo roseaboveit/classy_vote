@@ -51,6 +51,10 @@ a {
   background: transparent;
 }
 
+a.question {
+  font-size: 1.4em;
+}
+
 a:focus {
   outline: thin dotted;
 }
@@ -63,6 +67,7 @@ a:hover {
 h1 {
   margin: 0.67em 0;
   font-size: 2em;
+  text-align: center;
 }
 
 abbr[title] {

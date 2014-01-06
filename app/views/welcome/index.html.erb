@@ -1,7 +1,17 @@
-<h1>Welcome to Classy Vote!</h1>
-<p>Classy Vote is the app for adies to vote on topics</p>
 
-<%= link_to 'Sign Up', new_user_registration_path %>
-<%= link_to 'Sign In', new_user_session_path %>
-<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-<%= link_to "Profile Page", "/profile"%>
+<div class="jumbotron">
+  <h1>Welcome to Classy Vote!</h1>
+  <div class="text-center">
+  <% unless current_user%>
+    <%= link_to 'Sign Up', new_user_registration_path %> |
+    <%= link_to 'Sign In', new_user_session_path %> 
+  <% else %>
+    <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
+    <%= link_to "Profile Page", "/profile"%>
+  <% end %>
+  </div>
+</div>
+
+<div class="well">
+<p>Classy Vote is the app for adies to vote on topics. It was created over holiday break by Whitney Levis as an assignment for Ada Developers Academy. At the time this was the 3rd rails project she had undertaken and the first one without being part of a team. If you want to take a look at the code or recommend any changes check it out on <a href="https://github.com/roseaboveit/classy_vote">GitHub</a>.</p>
+</div>

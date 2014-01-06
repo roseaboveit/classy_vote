@@ -1,36 +1,43 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <h1>Welcome <%= current_user.username %>!</h1>
+  <div class="text-center">
+    <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
+    <%= link_to "Profile Page", "/profile"%> |
+    <%= link_to "Index", "/queries" %>
+  </div>
+</div>
 
-<p> This successfully renders </p>
+<div class="panel">
+  <h3>Questions You Posed</h3>
+  <div class="well">
+    <% unless @mine == [] %>
+      <% @mine.each do |q| %>
+      <div>
+        <a class="question" href="/queries/<%= q.id %>"><%= q.question %></a> 
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div>
+  <%= link_to "Ask a New Question!", new_query_path, :class => "btn btn-default" %>
+</div>
+</div>
 
-<%= link_to "New Question", new_query_path %>
+<div class="panel">
+  <h3>Unanswered Questions</h3>
 
-<h3>All Questions</h3>
-
-<% @queries.each do |q| %>
-  
-    <%= q.question %>
-  <% unless q.answered_users.include?(current_user)%>
-    <%= button_to q.yea.to_s + " Yea", query_yea_path(q.id), :method => "patch", :action => "yea" %>
-    <%= button_to q.nay.to_s + " Nay", query_nay_path(q.id), :method => "patch", :action => "nay" %><br>
+<div class="well">
+  <% @queries.each do |q| %>  
+    <% unless q.answered_users.include?(current_user)%>
+      <div>
+      
+      <div class="btn-group btn-group-lg">
+        <button type="button" class="btn btn-default"><%= button_to " Yea", query_yea_path(q.id), :method => "patch", :action => "yea" %></button>
+        <button type="button" class="btn btn-default"><%= button_to " Nay", query_nay_path(q.id), :method => "patch", :action => "nay" %></button>
+      </div>
+      <a class="question" href="/queries/<%= q.id %>"><%= q.question %></a>
+    <% end %>
   <% end %>
-  <% end %>
-
-
-  <h3>My Questions</h3>
-<% unless @mine == [] %>
-  <% @mine.each do |q| %>
-  <%= q.question %>
-<br>
-  <% end %>
-<% end %>
-
-<h3>Other People's Questions</h3>
-<% unless @others == [] %>
-  
-  <% @others.each do |q| %>
-  <%= q.question %>
-<br>
-<% end %>
-<% end %>
-
+</div>
+</div>
 
