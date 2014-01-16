@@ -10,10 +10,10 @@ ClassyVote::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  get 'profile', to: 'users#show'
-
+  get '/profile', to: 'users#show'
+  get '/dashboard', to: 'dashboard#show'
   # Example of regular route:
-  get 'users/:id' => 'users#show'
+  get '/users/:id' => 'users#show'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
