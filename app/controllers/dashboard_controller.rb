@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def show
-  @visitors = Visitors.all
-  @total_visitors = Visitors.all.count
+  @visitors = Visitor.all
+  @total_visitors = Visitor.all.count
   @visits = count_visits
   @page_views = count_page_views
   end

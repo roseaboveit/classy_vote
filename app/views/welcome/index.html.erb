@@ -4,7 +4,8 @@
   <div class="text-center">
   <% unless current_user%>
     <%= link_to 'Sign Up', new_user_registration_path %> |
-    <%= link_to 'Sign In', new_user_session_path %> 
+    <%= link_to 'Sign In', new_user_session_path %> |
+    <%= link_to "Analytics Dashboard", "/dashboard"%>
   <% else %>
     <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
     <%= link_to "Profile Page", "/profile"%> | 

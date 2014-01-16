@@ -26,22 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def assign_visitor
-    @visitors = Visitor.all
-    if @visitors.empty?
-      @visitor = Visitor.create(ip: request.remote_ip, visits: 0, page_views: 0)
-    end
-    @visitors = Visitor.all
-    @visitors.each do |v|
-      if v.ip == request.remote_ip
-        @visitor = Visitor.find_by(ip: request.remote_ip)
-        Rails.logger.warn @visitor.id
-      else
-        @visitor = Visitor.create(ip: request.remote_ip, visits: 0, page_views: 0)
-        Rails.logger.warn @visitor.ip
-      end
-    end
-    raise
-    @visitor
+    @visitor = Visitor.where(ip: request.remote_ip).first
+    @visitor ||= Visitor.create(ip: request.remote_ip, visits: 0, page_views: 0)
   end
 end
 
