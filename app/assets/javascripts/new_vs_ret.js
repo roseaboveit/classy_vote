@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", function(e){
+(function(){
+document.addEventListener("DOMContentLoaded", function(){
   //Helpful Drawing functions:
   //Finding the radius:
   var getRadius = function( orgX, orgY){
@@ -27,10 +28,11 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   var newEl = document.querySelector("#new_visits");
   var totalEl = document.querySelector("#total_visits");
+  var retEl = document.querySelector("#return_visits")
   console.log(newEl);
   var newV = parseInt(newEl.innerHTML, 10);
   var totalV = parseInt(totalEl.innerHTML, 10);
-  var retV = totalV - newV;
+  var retV = parseInt(retEl.innerHTML, 10);
 
   var newP = Math.round((newV/totalV) * 100);
   var totalP = 100 - newP;
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   context.arc(x, y, radius, startDeg, endDeg, counterClockwise);
   context.closePath();
   //Render Image
-  context.fillStyle = "green";
+  context.fillStyle = "yellow";
   context.fill();
 
   //Define Drawing (RETURN)
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   context.arc(x, y, radius, startDeg, endDeg, counterClockwise);
   context.closePath();
-  context.fillStyle = "blue";
+  context.fillStyle = "purple";
   context.fill();
-});
+})
+})();

@@ -1,10 +1,45 @@
+<div class="jumbotron">
+  <h1>Dashboard for Analytics of this Site</h1>
+  <div class="text-center">
+    <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
+    <%= link_to "Profile Page", "/profile"%> |
+    <%= link_to "Index", "/queries" %> |
+    <%= link_to "Home", "/"%>
+  </div>
+</div>
 
-<h1>Dashboard for Analytics of this Site</h1>
+<div class="panel panel-default col-md-4">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Vs. Return Visitors</h3>
+  </div>
+  <div class="panel-body">
+    <canvas id="new_vs_ret"></canvas><br>
+    <div>
+      New Visitors: <span id="new_visits"><%= @total_visitors %></span>
+    </div>
+    <div>
+      Return Visitors: <span id="return_visits"><%= (@visits - @total_visitors) %></span>
+    </div>
+    <div>
+      Total Visitors: <span id="total_visits"><%= @visits %></span></span>
+    </div>
+  </div>
+</div>
 
-<div>Bronze!</div>
-<div>Unique Visitors: <span id="new_visits"><%= @total_visitors %></span></div>
-<div>Number of Visits: <span id="total_visits"><%= @visits %></span></div>
-<div>Number of Page Views: <span id="total_page_views"><%= @page_views %></span></div>
-<canvas id="new_vs_ret"></canvas>
-
-<%= link_to "Index", "/queries" %>
+<div class="panel panel-default col-md-4 col-md-offset-4">
+  <div class="panel-heading">
+    <h3 class="panel-title">Average Pages per Visit</h3>
+  </div>
+  <div class="panel-body">
+    <canvas id="pageviews_per_visit"></canvas><br>
+    <div>
+      Total Visits: <span id="total_visits"><%= @visits %></span>
+    </div>
+    <div>
+      Total Page Views: <span id="page_views"><%= @page_views %></span>
+    </div>
+    <div>
+      Page Views per Visit: <span id="pvpv"><%= (@page_views/@visits) %></span></span>
+    </div>
+  </div>
+</div>

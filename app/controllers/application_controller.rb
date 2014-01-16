@@ -26,8 +26,11 @@ class ApplicationController < ActionController::Base
   end
 
   def assign_visitor
-    @visitor = Visitor.where(ip: request.remote_ip).first
-    @visitor ||= Visitor.create(ip: request.remote_ip, visits: 0, page_views: 0)
+    @visitor = Visitor.where(cake: session[cookies[:cake]]).first
+    unless @visitor
+      session[cookies.permanent[:cake]]=(Time.now).to_i + (1000..9999).to_a.sample
+    end
+    @visitor ||= Visitor.create(cake: session[cookies.permanent[:cake]], ip: request.remote_ip, visits: 0, page_views: 0)
   end
 end
 
