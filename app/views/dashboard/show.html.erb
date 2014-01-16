@@ -1,8 +1,10 @@
+
 <h1>Dashboard for Analytics of this Site</h1>
 
 <div>Bronze!</div>
-<div>Unique Visitors: <%= @total_visitors %></div>
-<div>Number of Visits: <%= @visits %></div>
-<div>Number of Page Views: <%= @page_views %></div>
+<div>Unique Visitors: <span id="new_visits"><%= @total_visitors %></span></div>
+<div>Number of Visits: <span id="total_visits"><%= @visits %></span></div>
+<div>Number of Page Views: <span id="total_page_views"><%= @page_views %></span></div>
+<canvas id="new_vs_ret"></canvas>
 
 <%= link_to "Index", "/queries" %>
