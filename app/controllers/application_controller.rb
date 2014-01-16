@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_referer
-    unless ( request.referer && request.referer.include?("localhost") ) #whispering-mountain-3816
+    unless ( request.referer && request.referer.include?("whispering-mountain-3816") ) 
       @visitor.update(visits: @visitor.visits + 1)
     end
   end
