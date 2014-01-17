@@ -39,9 +39,9 @@ document.addEventListener("DOMContentLoaded", function(){
     console.log("I have gotten to the really exciting part");
     var increment_relX = function(relX){
       var placeholderX = relX;
-      console.log(placeholderX);
+      console.log(placeholderX, "placeholder relX");
       var relX = placeholderX + smallWidth;
-      console.log(relX);
+      console.log(relX, "final relX");
       return relX;
     };
     var increment_relY = function(relY){
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var relX = 0;
     var relY = 0;
     for(var i=0; i < pvpv; i++ ){
+      console.log(relX, "relX early for loop");
       if (relX === canvas.width) {
         reset_relX();
         console.log(relX, "relX");
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(){
       context.fill();
       console.log(relX, "relX");
       increment_relX(relX);
-      console.log(relX, "relX");
+      console.log(relX, "relX end for loop");
     };
   };
   drawTinyRect();
