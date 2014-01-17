@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", function(){
       return relX;
     };
     var increment_relY = function(relY){
-      var relY = relY + smallHeight;
+      var placeholderY = relY;
+      var relY = placeholderY + smallHeight;
       return relY;
     };
     var reset_relX = function(relX){
