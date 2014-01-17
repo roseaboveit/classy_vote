@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   //For Each element set relX, relY, tinyX, tinyY, and draw
     //helpers
-    console.log("I have gotten to the really exciting part")
+    console.log("I have gotten to the really exciting part");
     var increment_relX = function(){
       var relX = relX + smallWidth;
     };
@@ -49,16 +49,22 @@ document.addEventListener("DOMContentLoaded", function(){
     for(var i=0; i < pvpv; i++ ){
       if (relX === canvas.width) {
         reset_relX
-        console.log("I can reset")
+        console.log("I can reset");
         increment_relY
-        console.log("I can increment Y")
+        console.log("I can increment Y");
       };
       context.beginPath();
+      console.log("I have begun");
       var x = relX + tinyWidth;
+      console.log("I know my X");
       var y = relY + tinyHeight;
+      console.log("I know my Y");
       context.rect(x, y, tinyWidth, tinyHeight);
+      console.log("I should have a rectangle");
       context.fill();
+      console.log("I should make a rectancle");
       increment_relX
+      console.log("I can increment relX");
     };
   };
 
