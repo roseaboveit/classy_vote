@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
   var newV = parseInt(newEl.innerHTML, 10);
   var totalV = parseInt(totalEl.innerHTML, 10);
   var retV = parseInt(retEl.innerHTML, 10);
-  if (totalV == 0) {
+  if (totalV === 0) {
     totalV = 1;
   }
 
