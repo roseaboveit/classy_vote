@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
       context.rect(x, y, tinyWidth, tinyHeight);
       context.fill();
       console.log(relX, "relX");
-      increment_relX(relX);
+      relX = increment_relX(relX);
       console.log(relX, "relX end for loop");
     };
   };
