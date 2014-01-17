@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function(){
   var newEl = document.querySelector("#new_visits");
   var totalEl = document.querySelector("#total_visits");
   var retEl = document.querySelector("#return_visits")
-  console.log(newEl);
   var newV = parseInt(newEl.innerHTML, 10);
   var totalV = parseInt(totalEl.innerHTML, 10);
   var retV = parseInt(retEl.innerHTML, 10);
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function(){
   var totalP = 100 - newP;
 
   var newInRad = (newV/totalV) * 2 * Math.PI;
-  console.log(newV, totalV);
   var retInRad = (retV/totalV) * 2 * Math.PI;
   //Define Drawing (NEW)
   var startDeg = 0;
@@ -47,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   context.beginPath();
   context.moveTo(x, y);
-  console.log(x, y, radius, startDeg, endDeg, counterClockwise);
   context.arc(x, y, radius, startDeg, endDeg, counterClockwise);
   context.closePath();
   //Render Image

@@ -21,11 +21,38 @@ document.addEventListener("DOMContentLoaded", function(){
     };
 
     var horizontals = Math.floor(Math.sqrt(pvpv + verticals)) - 1;
-    console.log(verticals, horizontals);
+  // Set smallWidth and smallHeight
+  // set tinyWidth and tinyHeight
 
-    // How Many Boxes to fill
-    // How to Draw in a box
-  //Simple-ish Variables to start
-  //How to draw all the things
+    var smallWidth = canvas.width/(verticals+1);
+    var smallHeight = canvas.height/(horizontals+1);
+    var tinyWidth = smallWidth/3;
+    var tinyHeight = smallHeight/3;
+
+  //For Each element set relX, relY, tinyX, tinyY, and draw
+    //helpers
+    var increment_relX = function(){
+      var relX = relX + smallWidth;
+    };
+    var increment_relY = function(){
+      var relY = relY + smallHeight;
+    };
+    var reset_relX = function(){
+      var relX = 0;
+    };
+  var drawTinyRect = function(){
+    for(var i=0; i < pvpv; i++ ){
+      if (relX === canvas.width) {
+        reset_relX
+        increment_relY
+      };
+      context.beginPath();
+      var x = relX + tinyWidth;
+      var y = relY + tinyHeight;
+      context.rect(x, y, tinyWidth, tinyHeight);
+      context.fill();
+    };
+  };
+
 })
 })();

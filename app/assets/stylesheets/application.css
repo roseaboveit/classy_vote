@@ -15,7 +15,7 @@ html {
 	padding: 2em;
 }
 
-#new_vs_ret {
+canvas {
         background: #fff;
         border: 1px solid #000;
       }
