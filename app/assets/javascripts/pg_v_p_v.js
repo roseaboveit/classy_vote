@@ -58,21 +58,17 @@ document.addEventListener("DOMContentLoaded", function(){
     for(var i=0; i < pvpv; i++ ){
       console.log(relX, "relX early for loop");
       if (relX === canvas.width) {
-        reset_relX();
+        reset_relX(relX);
         console.log(relX, "relX");
-        increment_relY();
+        increment_relY(relY);
         console.log(relY, "relY");
       };
       context.beginPath();
       var x = relX + tinyWidth;
-      console.log(x, "x");
       var y = relY + tinyHeight;
-      console.log(y, "y");
       context.rect(x, y, tinyWidth, tinyHeight);
       context.fill();
-      console.log(relX, "relX");
       relX = increment_relX(relX);
-      console.log(relX, "relX end for loop");
     };
   };
   drawTinyRect();
