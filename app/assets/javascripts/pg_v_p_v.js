@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
   var visits = parseInt(visitsEl.innerHTML, 10);
   var pvpv = parseInt(pvpvEl.innerHTML, 10);
 
-  var relX = 0;
-  var relY = 0;
+  
   //Helpful Methods
     // How Many Verticals & Horizontals
     if (pvpv == 1){
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // Set smallWidth and smallHeight
   // set tinyWidth and tinyHeight
-
+    console.log(canvas.width);
     var smallWidth = canvas.width/(verticals+1);
     var smallHeight = canvas.height/(horizontals+1);
     var tinyWidth = smallWidth/3;
@@ -38,16 +37,24 @@ document.addEventListener("DOMContentLoaded", function(){
   //For Each element set relX, relY, tinyX, tinyY, and draw
     //helpers
     console.log("I have gotten to the really exciting part");
-    var increment_relX = function(){
-      var relX = relX + smallWidth;
+    var increment_relX = function(relX){
+      var placeholderX = relX;
+      console.log(placeholderX);
+      var relX = placeholderX + smallWidth;
+      console.log(relX);
+      return relX;
     };
-    var increment_relY = function(){
+    var increment_relY = function(relY){
       var relY = relY + smallHeight;
+      return relY;
     };
-    var reset_relX = function(){
+    var reset_relX = function(relX){
       var relX = 0;
+      return relX;
     };
   var drawTinyRect = function(){
+    var relX = 0;
+    var relY = 0;
     for(var i=0; i < pvpv; i++ ){
       if (relX === canvas.width) {
         reset_relX();
@@ -57,12 +64,13 @@ document.addEventListener("DOMContentLoaded", function(){
       };
       context.beginPath();
       var x = relX + tinyWidth;
-      console.log("I know my X");
+      console.log(x, "x");
       var y = relY + tinyHeight;
-      console.log("I know my Y");
+      console.log(y, "y");
       context.rect(x, y, tinyWidth, tinyHeight);
       context.fill();
-      increment_relX();
+      console.log(relX, "relX");
+      increment_relX(relX);
       console.log(relX, "relX");
     };
   };
