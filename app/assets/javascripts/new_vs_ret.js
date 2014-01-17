@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function(){
   context.fill();
 
   //Define Drawing (RETURN)
-  var startDeg = endDeg;
-  var endDeg = 0;
+  startDeg = endDeg;
+  endDeg = 0;
   context.beginPath();
   context.moveTo(x, y);
 
@@ -64,5 +64,5 @@ document.addEventListener("DOMContentLoaded", function(){
   context.closePath();
   context.fillStyle = "purple";
   context.fill();
-})
+});
 })();

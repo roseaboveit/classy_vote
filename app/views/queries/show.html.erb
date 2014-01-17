@@ -8,9 +8,15 @@
   </div>
 </div>
 
-<div class="well"><h3 class="text-center">Yea Votes: <%= @query.yea %></h3></div>
-
-<div class="well"><h3 class="text-center">Nay Votes: <%= @query.nay %></h3></div>
+<div class="well">
+  <h3 class="text-center"><span id="yea_label">Yea Votes: <span id="yea_count"><%= @query.yea %></span></span></h3>
+</div>
+<div class="container">
+  <canvas id="yea_vs_nay"></canvas>
+</div>
+<div class="well">
+  <h3 class="text-center"><span id="nay_label">Nay Votes: <span id="nay_count"><%= @query.nay %></span></span></h3>
+</div>
 
 <% if @query.user_id == current_user.id %>
   <div class="well">

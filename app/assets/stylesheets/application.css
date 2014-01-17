@@ -19,3 +19,21 @@ canvas {
         background: #fff;
         border: 1px solid #000;
       }
+
+.container {
+	text-align: center;
+}
+
+#yea_label {
+	color: white;
+	background: purple;
+	}
+
+#nay_label {
+	color: black;
+	background: yellow;
+	}
+
+#yea_vs_nay {
+	margin: auto;
+}
