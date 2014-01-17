@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
   var visits = parseInt(visitsEl.innerHTML, 10);
   var pvpv = parseInt(pvpvEl.innerHTML, 10);
 
-  
   //Helpful Methods
     // How Many Verticals & Horizontals
     if (pvpv == 1){

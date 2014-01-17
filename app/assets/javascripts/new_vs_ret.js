@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   var newEl = document.querySelector("#new_visits");
   var totalEl = document.querySelector("#total_visits");
-  var retEl = document.querySelector("#return_visits")
+  var retEl = document.querySelector("#return_visits");
   var newV = parseInt(newEl.innerHTML, 10);
   var totalV = parseInt(totalEl.innerHTML, 10);
   var retV = parseInt(retEl.innerHTML, 10);
