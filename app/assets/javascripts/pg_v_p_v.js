@@ -51,22 +51,19 @@ document.addEventListener("DOMContentLoaded", function(){
     for(var i=0; i < pvpv; i++ ){
       if (relX === canvas.width) {
         reset_relX
-        console.log("I can reset");
+        console.log(relX, "relX");
         increment_relY
-        console.log("I can increment Y");
+        console.log(relY, "relY");
       };
       context.beginPath();
-      console.log("I have begun");
       var x = relX + tinyWidth;
       console.log("I know my X");
       var y = relY + tinyHeight;
       console.log("I know my Y");
       context.rect(x, y, tinyWidth, tinyHeight);
-      console.log("I should have a rectangle");
       context.fill();
-      console.log("I should make a rectancle");
       increment_relX
-      console.log("I can increment relX");
+      console.log(relX, "relX");
     };
   };
   drawTinyRect();
