@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function(){
     var relY = 0;
     for(var i=0; i < pvpv; i++ ){
       if (relX > canvas.width-tinyWidth) {
-        reset_relX(relX);
+        relX = reset_relX(relX);
         console.log(relX, "relX");
-        increment_relY(relY);
+        relY = increment_relY(relY);
         console.log(relY, "relY");
       };
       context.beginPath();
