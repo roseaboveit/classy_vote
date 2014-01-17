@@ -1,10 +1,15 @@
 <div class="jumbotron">
   <h1>Question Index</h1>
   <div class="text-center">
-    <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
-    <%= link_to "Profile Page", "/profile"%> |
-    <%= link_to "Index", "/queries" %> |
-    <%= link_to "Analytics Dashboard", "/dashboard"%>
+    <% unless current_user%>
+      <%= link_to 'Sign Up', new_user_registration_path %> |
+      <%= link_to 'Sign In', new_user_session_path %> |
+    <% else %>
+      <%= link_to "Log out", destroy_user_session_path, :method => :delete %> |
+      <%= link_to "Profile Page", "/profile"%> | 
+    <% end %>
+      <%= link_to "Home", "/"%> |
+      <%= link_to "Analytics Dashboard", "/dashboard"%>
   </div>
 </div>
 

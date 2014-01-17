@@ -17,10 +17,10 @@
 <div class="well">
   <h3 class="text-center"><span id="nay_label">Nay Votes: <span id="nay_count"><%= @query.nay %></span></span></h3>
 </div>
-
-<% if @query.user_id == current_user.id %>
-  <div class="well">
-    <%= link_to 'Destroy', @query, method: :delete, data: { confirm: 'Are you sure you want to destroy this question?'}, :class => "question" %> 
-  </div>
+<% if current_user %>
+  <% if @query.user_id == current_user.id %>
+    <div class="well">
+      <%= link_to 'Destroy', @query, method: :delete, data: { confirm: 'Are you sure you want to destroy this question?'}, :class => "question" %> 
+    </div>
+  <% end %>
 <% end %>
-
