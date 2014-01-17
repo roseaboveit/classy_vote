@@ -50,9 +50,9 @@ document.addEventListener("DOMContentLoaded", function(){
   var drawTinyRect = function(){
     for(var i=0; i < pvpv; i++ ){
       if (relX === canvas.width) {
-        reset_relX
+        reset_relX();
         console.log(relX, "relX");
-        increment_relY
+        increment_relY();
         console.log(relY, "relY");
       };
       context.beginPath();
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function(){
       console.log("I know my Y");
       context.rect(x, y, tinyWidth, tinyHeight);
       context.fill();
-      increment_relX
+      increment_relX();
       console.log(relX, "relX");
     };
   };
