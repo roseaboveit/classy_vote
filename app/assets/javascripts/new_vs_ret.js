@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function(){
   var totalV = parseInt(totalEl.innerHTML, 10);
   var retV = parseInt(retEl.innerHTML, 10);
   if (totalV == 0) {
-    var totalV = 1;
-  };
+    totalV = 1;
+  }
 
   var newP = Math.round((newV/totalV) * 100);
   var totalP = 100 - newP;
