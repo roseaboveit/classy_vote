@@ -10,10 +10,14 @@ document.addEventListener("DOMContentLoaded", function(){
   var pgV = parseInt(pgVEl.innerHTML, 10);
   var visits = parseInt(visitsEl.innerHTML, 10);
   var pvpv = parseInt(pvpvEl.innerHTML, 10);
+  console.log("I can scrape variables");
 
   //Helpful Methods
     // How Many Verticals & Horizontals
-    if(Math.sqrt(pvpv) == Math.floor(Math.sqrt(pvpv))){
+    if (pvpv == 1){
+      var verticals = 1;
+    }
+    else if(Math.sqrt(pvpv) == Math.floor(Math.sqrt(pvpv))){
       var verticals = Math.sqrt(pvpv) - 1;
     }
     else{
@@ -21,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function(){
     };
 
     var horizontals = Math.floor(Math.sqrt(pvpv + verticals)) - 1;
+    console.log(horizontals, verticals, "do I have 2 numbers? VH");
+
   // Set smallWidth and smallHeight
   // set tinyWidth and tinyHeight
 
@@ -28,9 +34,11 @@ document.addEventListener("DOMContentLoaded", function(){
     var smallHeight = canvas.height/(horizontals+1);
     var tinyWidth = smallWidth/3;
     var tinyHeight = smallHeight/3;
+    console.log(smallHeight, smallWidth, tinyHeight, tinyWidth);
 
   //For Each element set relX, relY, tinyX, tinyY, and draw
     //helpers
+    console.log("I have gotten to the really exciting part")
     var increment_relX = function(){
       var relX = relX + smallWidth;
     };
