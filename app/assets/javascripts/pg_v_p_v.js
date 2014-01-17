@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var relX = 0;
     var relY = 0;
     for(var i=0; i < pvpv; i++ ){
-      if (relX === canvas.width) {
+      if (canvas.width-relX<=5) {
         reset_relX(relX);
         console.log(relX, "relX");
         increment_relY(relY);
